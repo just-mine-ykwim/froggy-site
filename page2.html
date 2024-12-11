@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froggy Time Frog Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1, h2, h3 {
+            text-align: center;
+            color: #182716;
+            background-color: #a3c69f;
+            border-radius: 5px;
+            padding:10px;
+        }
+
+        body {
+            color: #2f4e2c;
+            background-color: #eeffe2;
+        }
+
+        p {
+            color: #182716;
+            background-color: #ffe2ee;
+            height: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 5px;
+        }
+
+        .header-section {
+            background-color: #a3c69f;
+            padding: 20px 0;
+        }
+
+        .header-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #271618;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .Logo img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .navbar {
+            background-color: #a3c69f;
+        }
+
+        .navbar .nav-link {
+            color: #271618;
+        }
+
+        .navbar .nav-link:hover {
+            color: #8b3c4c;
+        }
+
+        .navbar-nav {
+            padding-bottom: 20px;
+            margin-top: auto;
+        }
+
+        .no-fill-background p {
+            background-color: #fffdfc;
+            height: auto; 
+        }
+
+        .hover-text {
+            position: absolute; 
+            bottom: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background-color: #d0e7d0;
+            color: #182716;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+            width: 80%;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #2f4e2c;
+            border-radius: 5px;
+        }
+
+        .image-container img {
+            margin-bottom: 100px;
+            border: 3px solid #a3c69f;
+            border-radius: 5px;
+        }
+
+        .column-background {
+            background-color: #182716;
+            border-radius: 5px;
+            padding: 15px;
+			height: 100%;
+        }
+
+        .audio-player {
+            margin-top: 20px;
+            background-color: #8b3c4c;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Rounding for carousel and images */
+        .carousel {
+            border-radius: 15px;
+            overflow: hidden; 
+        }
+
+        .carousel-item img {
+            border-radius: 15px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $("#factForm").submit(function(event) {
+                event.preventDefault();
+                var fact = $("#factInput").val().trim();
+                if(fact) {
+                    $("#submissions").append("<p>" + fact + "</p>");
+                    $("#factInput").val("");
+                }
+            });
+            $(".col-2:first-child img").hover(
+                function() {
+                    const leftAudio = new Audio('https://raw.githubusercontent.com/bogfrog37/froggy-site/main/frog-85649.mp3');
+                    leftAudio.play();
+                }
+            );
+
+            $(".col-2:last-child img").hover(
+                function() {
+                    const rightAudio = new Audio('https://raw.githubusercontent.com/bogfrog37/froggy-site/main/frog-croak-80816.mp3');
+                    rightAudio.play();
+                }
+            );			
+        });
+    </script>
+</head>
+<body>
+    <!-- Navbar/Header Section -->
+    <div class="header-section">
+        <div class="container-fluid">
+            <div class="row align-items-end">
+                <div class="col-2 text-center">
+                    <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_logo-logo/v1733711628/FROGGY_TIME_4_bjs63h.gif" alt="Left Logo" style="width: 100%; height: auto; max-width: 150px;">
+                </div>
+                <div class="col-8 text-center">
+                    <div class="row">
+                        <h1 style="font-size: 2rem; font-weight: bold; background-color: #a3c69f; color: #271618;">Froggy Time Frog Site</h1>
+                    </div>
+                    <div class="row align-items-end">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center" href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center" href="#">Frogs</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center" href="#">More Frog Stuff</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-2 text-center">
+                    <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_logo-logo/v1733711552/FROGGY_TIME_3_ulk90h.gif" alt="Right Logo" style="width: 100%; height: auto; max-width: 150px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-5">
+        <!-- Added g-3 for spacing between columns -->
+        <div class="row g-3">
+            <!-- Left column -->
+            <div class="col-md-8">
+                <div class="column-background">
+                    <!-- Carousel -->
+                    <div id="frogCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_img-carousel/v1733789826/frog-4323621_1280_jjqi3x.jpg" class="d-block mx-auto img-fluid" alt="Frog 1">
+                                <p>Did you know? Some frogs can lay up to 20,000 eggs at once!</p>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_img-carousel/v1733789825/frog-2525994_1280_hjxldy.jpg" class="d-block mx-auto img-fluid" alt="Frog 2">
+                                <p>Groups of frogs are often referred to as an army. A large group of bullfrogs is called a chorus. Neat, huh!</p>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_img-carousel/v1733789826/frog-3817964_1280_qmcgyc.jpg" class="d-block mx-auto img-fluid" alt="Frog 3">
+                                <p>Frogs absorb water through their skin, meaning they don't usually drink through their mouths!</p>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_img-carousel/v1733789825/frog-8159829_1280_qklzbj.jpg" class="d-block mx-auto img-fluid" alt="Frog 4">
+                                <p>Some frogs can change color to blend with their surroundings.</p>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="https://res.cloudinary.com/djbjylmzr/image/upload/t_img-carousel/v1733681793/pexels-lexo-salazar-188863-2092027_bcvewu.jpg" class="d-block mx-auto img-fluid" alt="Frog 5">
+                                <p>Frogs have been around for over 200 million years, even before the dinosaurs!</p>
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#frogCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#frogCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column -->
+            <div class="col-md-4">
+                <div class="column-background">
+                    <h3>Submit your favourite froggy factoid!</h3>
+                    <form id="factForm" class="mb-3">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="factInput" placeholder="Type your fact here and submit :)" required>
+                        </div>
+                        <button type="submit" class="btn btn-success" style="background-color: #8b3c4c;" >Submit</button>
+                    </form>
+                    <div id="submissions" class="bg-light p-3" style="border-radius:5px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
